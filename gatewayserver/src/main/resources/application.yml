@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: "gatewayserver"
+  profiles:
+    active: "default"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:8080/realms/master/protocol/openid-connect/certs"
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Margobank Task Gateway Server Application"
+    version: "1.0.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+logging:
+  level:
+    com:
+      margobank:
+        gatewayserver: DEBUG
+
+resilience4j.circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 2
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
+
+
