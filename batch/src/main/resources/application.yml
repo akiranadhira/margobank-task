@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: "batch"
+  profiles:
+    active: "default"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mysql
+    username: root
+    password: XXXX
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+
+info:
+  app:
+    name: "batch"
+    description: "Margobank Task Batch Application"
+    version: "1.0.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+endpoint:
+  shutdown:
+    enabled: true
+
+logging:
+  level:
+    com:
+      margobank:
+        transaction: DEBUG
