@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+build:
+  version: "1.0"
+
+transaction:
+  message: "Welcome to Margobank Transaction related local APIs"
+  contactDetails:
+    name: "Akira - Software Engineer"
+    email: "akiranadhira1812@gmail.com"
+  onCallSupport:
+    -(555) 555-1234
+    -(555) 523-4321
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
