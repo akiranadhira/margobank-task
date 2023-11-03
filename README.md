@@ -7,5 +7,5 @@ Before trying it out on your local remember these are the basic things to be ins
 3. Keycloak
 4. Java
 
-Feel free to ask on my linkedin or instagram if u have inquiries or even better.
+Feel free to ask on my linkedin or instagram if u have inquiries or even better things to tell.
 Thank you.
